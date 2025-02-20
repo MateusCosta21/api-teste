@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\SaveMusicaRequest;
 use App\Http\Resources\MusicasResource;
 use App\Services\Musicas\Dto\ListaMusicasDto;
 use App\Services\Musicas\MusicaService;
@@ -26,5 +27,15 @@ class MusicasController extends Controller
         $musicas->appends(request()->query());
 
         return MusicasResource::collection($musicas);
+    }
+
+    public function store(SaveMusicaRequest $request){
+        $musica = $this->service->salvarMusica($request->validated());
+
+        return response()->json([
+            'message' => 'Música Criada com sucesso.',
+            'data' => $musica,
+        ], 201);
+
     }
 }
