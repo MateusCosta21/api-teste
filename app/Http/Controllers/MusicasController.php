@@ -12,15 +12,7 @@ class MusicasController extends Controller
 
     public function index()
     {
-        return response()->json($this->service->getTop5(), 200);
-    }
-
-    public function store(Request $request)
-    {
-        $data = $request->validate([
-            'url' => 'required|url',
-        ]);
-
-        return response()->json($this->service->suggestMusic($data), 201);
+        
+        return response()->json($this->service->listarTop5());
     }
 }

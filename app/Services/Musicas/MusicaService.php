@@ -3,24 +3,23 @@
 namespace App\Services\Musicas;
 
 use App\Repositories\MusicaRepository;
-use App\Repositories\SugestaoRepository;
-use Illuminate\Support\Facades\Auth;
 
 class MusicaService
 {
-    public function __construct(protected MusicaRepository $musicaRepository, protected SugestaoRepository $sugestaoRepository){}
+    public function __construct(protected MusicaRepository $musicaRepository){}
     
-    public function getTop5()
+    public function listarTop5()
     {
-        return $this->musicaRepository->getTop5();
+        return $this->musicaRepository->listar();
     }
 
-    public function suggestMusic($data)
+    public function salvarMusica(array $dados)
     {
-        if (!Auth::check()) {
-            throw new \Exception("Usuário não autenticado");
-        }
+        return $this->musicaRepository->salvar($dados);
+    }
 
-        return $this->sugestaoRepository->criarSugestao($data);
+    public function excluirMusica($musica)
+    {
+        return $this->musicaRepository->deletar($musica);
     }
 }

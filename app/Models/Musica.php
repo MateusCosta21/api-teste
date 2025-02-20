@@ -9,22 +9,5 @@ class Musica extends Model
 {
     use HasFactory;
 
-    protected $table = 'musicas';
-
-    protected $fillable = [
-        'titulo',
-        'youtube_id',
-        'thumb',
-        'visualizacoes',
-        'approved',
-    ];
-
-    protected $casts = [
-        'approved' => 'boolean',
-    ];
-
-    public function scopeApproved($query)
-    {
-        return $query->where('approved', true);
-    }
+    protected $fillable = ['titulo', 'youtube_id', 'thumb', 'visualizacoes'];
 }
