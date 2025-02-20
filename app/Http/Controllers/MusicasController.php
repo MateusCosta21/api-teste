@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\SaveMusicaRequest;
+use App\Http\Requests\MusicaRequest;
+use App\Http\Requests\UpdateMusicaRequest;
 use App\Http\Resources\MusicasResource;
 use App\Services\Musicas\Dto\ListaMusicasDto;
 use App\Services\Musicas\MusicaService;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class MusicasController extends Controller
 {
@@ -29,13 +31,20 @@ class MusicasController extends Controller
         return MusicasResource::collection($musicas);
     }
 
-    public function store(SaveMusicaRequest $request){
+    public function store(MusicaRequest $request){
         $musica = $this->service->salvarMusica($request->validated());
-
         return response()->json([
             'message' => 'Música Criada com sucesso.',
             'data' => $musica,
         ], 201);
 
+    }
+
+    public function update(MusicaRequest $request, string $id)
+    {
+        $musica = $this->service->atualizarMusica($id, $request->validated());
+        return (new MusicasResource($musica))
+            ->response()
+            ->setStatusCode(Response::HTTP_OK);
     }
 }

@@ -6,6 +6,9 @@ use App\Repositories\MusicaRepository;
 use App\Services\Musicas\Dto\ListaMusicasDto;
 use App\Services\Youtube\YoutubeService;
 use Exception;
+use Illuminate\Support\Facades\DB;
+
+
 
 class MusicaService
 {
@@ -30,6 +33,29 @@ class MusicaService
         $videoInfo = $this->youTubeService->getVideoInfo($youtubeId);
 
         return $this->musicaRepository->salvar($videoInfo);
+    }
+
+
+    public function atualizarMusica(string $id, array $dados)
+    {
+        DB::beginTransaction();
+
+        $musica = $this->musicaRepository->getById($id);
+
+        if (! $musica) {
+            throw new Exception("Id Inválido");
+        }
+        DB::commit();
+
+        $youtubeId = $this->youTubeService->extractVideoId($dados['url']);
+    
+        if (!$youtubeId) {
+            throw new Exception("URL do YouTube inválida");
+        }
+    
+        $videoInfo = $this->youTubeService->getVideoInfo($youtubeId);
+
+        return $this->musicaRepository->atualizar($id, $videoInfo);
     }
 
     public function excluirMusica($musica)

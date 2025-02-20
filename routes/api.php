@@ -26,8 +26,8 @@ Route::middleware(['guest'])->group(function () {
 Route::middleware(['admin'])->group(function () {
     Route::prefix('/musicas')->group(function () {
         Route::post('/salvar', [MusicasController::class, 'store']);
-        Route::put('{id}/update', [MusicasController::class, 'update']);
-        Route::delete('{id}/delete', [MusicasController::class, 'destroy']);
+        Route::put('/{id}/update', [MusicasController::class, 'update']);
+        Route::delete('/{id}/delete', [MusicasController::class, 'destroy']);
     });
 
 

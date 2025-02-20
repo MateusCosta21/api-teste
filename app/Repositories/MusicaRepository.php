@@ -32,9 +32,20 @@ class MusicaRepository
         return $query->paginate($limit, ['*'], 'page', $page);
     }
 
+    public function getById(string $id)
+    {
+        return $this->model->find($id);
+    }
+
     public function salvar(array $dados)
     {
         return $this->model->create($dados);
+    }
+
+    public function atualizar(string $id, array $dados)
+    {
+        $this->model->where('id', $id)->update($dados);
+        return $this->model->find($id);
     }
 
     public function deletar(Musica $musica)
