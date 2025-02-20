@@ -23,14 +23,21 @@ Route::middleware(['guest'])->group(function () {
         ->name('musica.index');
 });
 
-Route::middleware(['auth:sanctum', 'admin'])->group(function () {
-    Route::post('/musicas', [MusicasController::class, 'store']);
-    Route::put('/musicas/{id}', [MusicasController::class, 'update']);
-    Route::delete('/musicas/{id}', [MusicasController::class, 'destroy']);
-    Route::post('/sugestoes', [SugestaoController::class, 'sugerir']);
-    Route::get('/sugestoes/pendentes', [SugestaoController::class, 'listarPendentes']);
-    Route::patch('/sugestoes/{id}/aprovar', [SugestaoController::class, 'aprovar']);
-    Route::patch('/sugestoes/{id}/rejeitar', [SugestaoController::class, 'rejeitar']);
+Route::middleware(['admin'])->group(function () {
+    Route::prefix('/musicas')->group(function () {
+        Route::post('/salvar', [MusicasController::class, 'store']);
+        Route::put('{id}/update', [MusicasController::class, 'update']);
+        Route::delete('{id}/delete', [MusicasController::class, 'destroy']);
+    });
+
+
+    Route::prefix('/sugestoes')->group(function () {
+        Route::get('/', [SugestaoController::class, 'listarPendentes']);
+        Route::patch('/{id}/aprovar', [SugestaoController::class, 'aprovar']);
+        Route::patch('/{id}/rejeitar', [SugestaoController::class, 'rejeitar']);
+    });
+ 
+
 });
 
 

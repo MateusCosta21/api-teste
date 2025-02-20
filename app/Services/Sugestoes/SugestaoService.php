@@ -3,6 +3,7 @@
 namespace App\Services\Sugestoes;
 
 use App\Repositories\SugestaoRepository;
+use App\Services\Sugestoes\Dto\ListaSugestoesDto;
 use Exception;
 use Illuminate\Support\Facades\Http;
 
@@ -13,6 +14,11 @@ class SugestaoService
     public function __construct(SugestaoRepository $sugestaoRepository)
     {
         $this->sugestaoRepository = $sugestaoRepository;
+    }
+
+    public function listarSugestoes(ListaSugestoesDto $dto)
+    {
+        return $this->sugestaoRepository->getPaginate(dto: $dto);
     }
 
     public function listarPendentes()
