@@ -7,14 +7,17 @@ use App\Models\Sugestao;
 class SugestaoRepository
 {
 
+
+    public function __construct(protected Sugestao $model){}
+    
     public function listarPendentes()
     {
-        return Sugestao::where('status', 'pendente')->get();
+        return $this->model->where('status', 'pendente')->get();
     }
 
     public function salvar(array $dados)
     {
-        return Sugestao::create($dados);
+        return $this->model->create($dados);
     }
 
     public function aprovar(Sugestao $sugestao)
