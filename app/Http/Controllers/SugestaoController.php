@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UpdateSugestaoRequest;
 use App\Http\Resources\SugestoesResource;
 use App\Models\Sugestao;
 use App\Services\Sugestoes\Dto\ListaSugestoesDto;
@@ -40,13 +41,11 @@ class SugestaoController extends Controller
         return response()->json($this->sugestaoService->sugerirMusica($dados), 201);
     }
 
-    public function aprovar(Sugestao $sugestao)
+    public function updateStatus(UpdateSugestaoRequest $request, string $id)
     {
-        return response()->json($this->sugestaoService->aprovarSugestao($sugestao));
-    }
 
-    public function rejeitar(Sugestao $sugestao)
-    {
-        return response()->json($this->sugestaoService->rejeitarSugestao($sugestao));
+        $sugestao = $this->sugestaoService->updateStatus($id, $request->validated());
+
+        return response()->json($sugestao);
     }
 }

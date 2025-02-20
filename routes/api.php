@@ -33,8 +33,7 @@ Route::middleware(['admin'])->group(function () {
 
     Route::prefix('/sugestoes')->group(function () {
         Route::get('/', [SugestaoController::class, 'listarPendentes']);
-        Route::patch('/{id}/aprovar', [SugestaoController::class, 'aprovar']);
-        Route::patch('/{id}/rejeitar', [SugestaoController::class, 'rejeitar']);
+        Route::patch('/{id}/status', [SugestaoController::class, 'updateStatus']);
     });
  
 

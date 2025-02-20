@@ -43,15 +43,15 @@ class SugestaoRepository
         return $this->model->create($dados);
     }
 
-    public function aprovar(Sugestao $sugestao)
+    public function getById(string $id)
     {
-        $sugestao->update(['status' => 'aprovada']);
-        return $sugestao;
+        return $this->model->find($id);
     }
 
-    public function rejeitar(Sugestao $sugestao)
+    public function update(string $id, array $data)
     {
-        $sugestao->update(['status' => 'rejeitada']);
-        return $sugestao;
+        $this->model->where('id', $id)->update($data);
+
+        return $this->model->find($id);
     }
 }

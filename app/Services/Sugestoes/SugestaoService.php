@@ -6,6 +6,7 @@ use App\Repositories\SugestaoRepository;
 use App\Services\Sugestoes\Dto\ListaSugestoesDto;
 use Exception;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\DB;
 
 class SugestaoService
 {
@@ -79,13 +80,19 @@ class SugestaoService
         ];
     }
 
-    public function aprovarSugestao($sugestao)
+    public function updateStatus(string $id, array $data)
     {
-        return $this->sugestaoRepository->aprovar($sugestao);
+        DB::beginTransaction();
+
+        $sugestao = $this->sugestaoRepository->getById($id);
+        if(!$sugestao){
+            throw new Exception("O id não existe");
+        }
+
+        DB::commit();
+
+        return $this->sugestaoRepository->update($sugestao->id, $data);
     }
 
-    public function rejeitarSugestao($sugestao)
-    {
-        return $this->sugestaoRepository->rejeitar($sugestao);
-    }
+
 }
