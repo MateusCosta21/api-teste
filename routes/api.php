@@ -8,6 +8,7 @@ use App\Http\Controllers\Auth\VerifyEmailController;
 use App\Http\Controllers\Auth\NewPasswordController;
 use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\MusicasController;
+use App\Http\Controllers\SugestaoController;
 
 Route::middleware(['guest'])->group(function () {
     Route::post('/register', [RegisteredUserController::class, 'store'])
@@ -25,6 +26,7 @@ Route::middleware(['guest'])->group(function () {
     Route::get('/musicas', [MusicasController::class, 'index'])
         ->name('musica.index');
 
+
     
 });
 
@@ -34,5 +36,8 @@ Route::middleware(['auth:sanctum', 'admin'])->group(function () {
     Route::delete('/musicas/{id}', [MusicasController::class, 'destroy']);
 });
 
+Route::middleware(['auth'])->group(function () {
+    Route::post('/sugestoes', [SugestaoController::class, 'sugerir']);
+});
 
 
