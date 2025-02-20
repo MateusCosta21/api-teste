@@ -47,9 +47,4 @@ class MusicaRepository
         $this->model->where('id', $id)->update($dados);
         return $this->model->find($id);
     }
-
-    public function deletar(Musica $musica)
-    {
-        return $musica->delete();
-    }
 }

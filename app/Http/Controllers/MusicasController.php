@@ -47,4 +47,13 @@ class MusicasController extends Controller
             ->response()
             ->setStatusCode(Response::HTTP_OK);
     }
+
+    
+    public function destroy(string $id)
+    {
+
+        $this->service->excluirMusica($id);
+
+        return response()->noContent();
+    }
 }

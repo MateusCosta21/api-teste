@@ -4,7 +4,7 @@ namespace App\Services\Sugestoes;
 
 use App\Repositories\SugestaoRepository;
 use App\Services\Sugestoes\Dto\ListaSugestoesDto;
-use App\Services\YouTube\YouTubeService;
+use App\Services\Youtube\YoutubeService;
 use Exception;
 use Illuminate\Support\Facades\DB;
 
@@ -12,7 +12,7 @@ class SugestaoService
 {
     public function __construct(
         protected SugestaoRepository $sugestaoRepository,
-        protected YouTubeService $youTubeService
+        protected YoutubeService $youTubeService
     ) {}
 
     public function listarSugestoes(ListaSugestoesDto $dto)
@@ -39,7 +39,7 @@ class SugestaoService
         return $this->sugestaoRepository->salvar($videoInfo);
     }
 
-    public function updateStatus(string $id, array $data)
+    public function updateStatus(string $id, array $dados)
     {
         DB::beginTransaction();
 
@@ -50,6 +50,6 @@ class SugestaoService
 
         DB::commit();
 
-        return $this->sugestaoRepository->update($sugestao->id, $data);
+        return $this->sugestaoRepository->update($sugestao->id, $dados);
     }
 }

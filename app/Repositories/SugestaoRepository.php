@@ -48,9 +48,9 @@ class SugestaoRepository
         return $this->model->find($id);
     }
 
-    public function update(string $id, array $data)
+    public function update(string $id, array $dados)
     {
-        $this->model->where('id', $id)->update($data);
+        $this->model->where('id', $id)->update($dados);
 
         return $this->model->find($id);
     }

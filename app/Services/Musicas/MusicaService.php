@@ -58,8 +58,17 @@ class MusicaService
         return $this->musicaRepository->atualizar($id, $videoInfo);
     }
 
-    public function excluirMusica($musica)
+
+
+    public function excluirMusica(string $id): void
     {
-        return $this->musicaRepository->deletar($musica);
+        DB::beginTransaction();
+        $musica = $this->musicaRepository->getById($id);
+
+        if (! $musica) {
+            throw new Exception("Id Inválido");
+        }
+        DB::commit();
+        $musica->delete();
     }
 }
