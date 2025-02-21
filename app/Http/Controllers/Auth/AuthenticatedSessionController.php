@@ -19,19 +19,26 @@ class AuthenticatedSessionController extends Controller
             'email' => 'required|string|email',
             'password' => 'required|string',
         ]);
-
+    
         if (!$token = JWTAuth::attempt($credentials)) {
             return response()->json(['error' => 'Unauthorized'], 401);
         }
-
+    
+        $user = Auth::user();
+    
+        $roles = $user->roles()->pluck('nome'); 
+    
+        $isAdmin = $user->isAdmin();
+    
         return response()->json([
             'access_token' => $token,
             'token_type' => 'bearer',
-            'expires_in' => config('jwt.ttl') * 60, 
-            'user' => Auth::user(),
+            'expires_in' => config('jwt.ttl') * 60,
+            'user' => $user,
+            'roles' => $roles,
+            'is_admin' => $isAdmin, // Incluindo a informação de admin
         ]);
     }
-
 
     public function destroy(Request $request): JsonResponse
     {
