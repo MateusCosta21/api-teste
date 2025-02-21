@@ -9,6 +9,6 @@ class ListaMusicasDto
         public string $sort_column = 'visualizacoes',
         public string $sort_direction = 'desc',
         public int $page = 1,
-        public int $limit = 10,
+        public int $limit = 5,
     ) {}
 }
