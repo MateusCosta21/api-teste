@@ -20,6 +20,8 @@ class SugestaoRepository
             $query->where('titulo', 'ILIKE', '%'.$dto->filter.'%');
         }
 
+        $query->whereRaw("status = 'pending'");
+
         $sortColumn = $dto->sort_column ?? 'id';
         $sortDirection = $dto->sort_direction ?? 'asc';
 
