@@ -16,36 +16,36 @@ class MusicasSeeder extends Seeder
         DB::table('musicas')->insert([
             [
                 'titulo' => 'Meia Noite',
-                'youtube_id' => '7XWGYh_TwWg',
-                'thumb' => 'https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQ4qykpNXu7XUWJfhh2nZnkGt4-SlNHQqnLIFgsEyaVSHr6z8JZ0_gWosPDhGOGePfEDynW0LOX0FRIpCkW49_7jA',
+                'youtube_id' => 'mv7IFnlRldQ&',
+                'thumb' => 'https://i.ytimg.com/vi/mv7IFnlRldQ/hq720.jpg?sqp=-oaymwFBCNAFEJQDSFryq4qpAzMIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB8AEB-AH-CYAC0AWKAgwIABABGHIgRyhJMA8=&rs=AOn4CLARoVqBH4q3rD-f6VhBaZU7yCJdhw',
                 'visualizacoes' => 1500000,
                 'created_at' => $now
             ],
             [
                 'titulo' => 'Só Não Divulga',
-                'youtube_id' => 'X9UMMOuq8xY',
-                'thumb' => 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBJbnFQaw2wI0pK3GQE_0VpZLIslcwHaTGew&s',
+                'youtube_id' => 'qIMlrNuPvsw&',
+                'thumb' => 'https://i.ytimg.com/vi/qIMlrNuPvsw/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLBui337f9zIVWADZ5EJdy-q0kxF5g',
                 'visualizacoes' => 2000000,
                 'created_at' => $now
             ],
             [
                 'titulo' => 'Proteção de Tela',
-                'youtube_id' => 'qvRyknEpwcY',
-                'thumb' => 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWZvdmp67Zh_ECDNtH8h5YGzdUUl96l08KPQ&s',
+                'youtube_id' => 'edjih_b_NBQ&',
+                'thumb' => 'https://i.ytimg.com/vi/edjih_b_NBQ/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLCf2Sq8bTlvcBjWpFAAK01sYR5C0Q',
                 'visualizacoes' => 1800000,
                 'created_at' => $now
             ],
             [
                 'titulo' => 'Rolê',
-                'youtube_id' => 'ykUqTgeBMxc',
-                'thumb' => 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8XX2NwPFjPNyFWwJtemeb1MGsyg1m0t1TFA&s',
+                'youtube_id' => 'fh9abxybdfc&',
+                'thumb' => 'https://i.ytimg.com/vi/fh9abxybdfc/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLDHpTlc9ZX1aGkOewLINXKVVX-aOg',
                 'visualizacoes' => 2200000,
                 'created_at' => $now
             ],
             [
-                'titulo' => 'Chora Não Bebê',
-                'youtube_id' => 'vOqfWlZWxK0',
-                'thumb' => 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8Y0Zvkrrk8oi-u5ruJEy8Nzh5SelNnA5a_A&s',
+                'titulo' => 'Nêga',
+                'youtube_id' => 'hm-rLEoAi0I&',
+                'thumb' => 'https://i.ytimg.com/vi/hm-rLEoAi0I/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLBhR2M3yIYbZ-HwfrH6frmwoP9dpw',
                 'visualizacoes' => 2500000,
                 'created_at' => $now
             ]
