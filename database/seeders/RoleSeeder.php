@@ -14,9 +14,11 @@ class RoleSeeder extends Seeder
      */
     public function run(): void
     {
+        // Criação dos papéis (roles)
         $adminRole = Role::firstOrCreate(['nome' => 'admin']);
         $userRole = Role::firstOrCreate(['nome' => 'user']);
 
+        // Criação do administrador
         $admin = User::firstOrCreate(
             ['email' => 'admin21@example.com'],
             [
@@ -24,7 +26,16 @@ class RoleSeeder extends Seeder
                 'password' => bcrypt('senha123')
             ]
         );
-
         $admin->roles()->sync([$adminRole->id]);
+
+        // Criação de um usuário normal
+        $normalUser = User::firstOrCreate(
+            ['email' => 'user21@example.com'],
+            [
+                'name' => 'Usuário Normal',
+                'password' => bcrypt('senha123')
+            ]
+        );
+        $normalUser->roles()->sync([$userRole->id]);
     }
 }

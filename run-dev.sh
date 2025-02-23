@@ -69,5 +69,21 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
+
+echo "Rodando a MusicasSeeder..."
+docker-compose exec laravel.test php artisan db:seed --class=MusicasSeeder
+if [ $? -ne 0 ]; then
+    echo "Erro ao rodar a MusicasSeeder. Abortando."
+    exit 1
+fi
+
+
+echo "Rodando a RoleSeeder..."
+docker-compose exec laravel.test php artisan db:seed --class=RoleSeeder
+if [ $? -ne 0 ]; then
+    echo "Erro ao rodar a RoleSeeder. Abortando."
+    exit 1
+fi
+
 # Passo 6: Exibir mensagem de conclusão
 echo "Configuração concluída com sucesso!"
