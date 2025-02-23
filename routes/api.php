@@ -32,7 +32,7 @@ Route::middleware(['admin'])->group(function () {
 
 
     Route::prefix('/sugestoes')->group(function () {
-        Route::get('/', [SugestaoController::class, 'listarPendentes']);
+        Route::get('/lista-sugestoes', [SugestaoController::class, 'listarPendentes']);
         Route::patch('/{id}/status', [SugestaoController::class, 'updateStatus']);
     });
  

@@ -17,35 +17,35 @@ class MusicasSeeder extends Seeder
             [
                 'titulo' => 'Meia Noite',
                 'youtube_id' => '7XWGYh_TwWg',
-                'thumb' => 'https://img.youtube.com/vi/7XWGYh_TwWg/hqdefault.jpg',
+                'thumb' => 'https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQ4qykpNXu7XUWJfhh2nZnkGt4-SlNHQqnLIFgsEyaVSHr6z8JZ0_gWosPDhGOGePfEDynW0LOX0FRIpCkW49_7jA',
                 'visualizacoes' => 1500000,
                 'created_at' => $now
             ],
             [
                 'titulo' => 'Só Não Divulga',
                 'youtube_id' => 'X9UMMOuq8xY',
-                'thumb' => 'https://img.youtube.com/vi/X9UMMOuq8xY/hqdefault.jpg',
+                'thumb' => 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBJbnFQaw2wI0pK3GQE_0VpZLIslcwHaTGew&s',
                 'visualizacoes' => 2000000,
                 'created_at' => $now
             ],
             [
                 'titulo' => 'Proteção de Tela',
                 'youtube_id' => 'qvRyknEpwcY',
-                'thumb' => 'https://img.youtube.com/vi/qvRyknEpwcY/hqdefault.jpg',
+                'thumb' => 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWZvdmp67Zh_ECDNtH8h5YGzdUUl96l08KPQ&s',
                 'visualizacoes' => 1800000,
                 'created_at' => $now
             ],
             [
                 'titulo' => 'Rolê',
                 'youtube_id' => 'ykUqTgeBMxc',
-                'thumb' => 'https://img.youtube.com/vi/ykUqTgeBMxc/hqdefault.jpg',
+                'thumb' => 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8XX2NwPFjPNyFWwJtemeb1MGsyg1m0t1TFA&s',
                 'visualizacoes' => 2200000,
                 'created_at' => $now
             ],
             [
                 'titulo' => 'Chora Não Bebê',
                 'youtube_id' => 'vOqfWlZWxK0',
-                'thumb' => 'https://img.youtube.com/vi/vOqfWlZWxK0/hqdefault.jpg',
+                'thumb' => 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8Y0Zvkrrk8oi-u5ruJEy8Nzh5SelNnA5a_A&s',
                 'visualizacoes' => 2500000,
                 'created_at' => $now
             ]
