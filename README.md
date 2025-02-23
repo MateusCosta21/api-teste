@@ -21,4 +21,6 @@ Este é o backend da aplicação, construído em Laravel. Ele expõe uma API RES
 
 3. O servidor estará disponível em: localhost:8167
 
+4. Caso deseje verificar as requisições via insomnia, basta realizar o download [clicando aqui](https://drive.google.com/file/d/1WWhyIha_Vs38dBkHaAWBPOZi5Sd5EEd5/view?usp=sharing) e realizar a importação dentro do insomnia.
+
 
